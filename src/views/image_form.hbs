@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <form action="" method="PUT" enctype="multipart/form-data">
+                    <div class="input-group mb-3">
+                        <div class="custom-file">
+                            <input type="file" name="image" class="custom-file-input" id="inputGroupFile01">
+                            <label for="inputGroupFile01" class="custom-file-label">Choose File</label>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary">Upload</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <form action="/signup" method="POST">
+            <input type="text" name="nombre_usuario" placeholder="Inserte Nombre" required>
+            <input type="text" name="apellido_usuario" placeholder="Inserte Apellido" required>
+            <input type="text" name="alias_usuario" placeholder="Inserte Alias" required>
+            <input type="email" name="correo_electronico" placeholder="Inserta Mail" required>
+            <input type="password" name="clave_usuario" placeholder="Inserta Contraseña" required>
+            <button type="submit" class="btn btn-primary">Enviar </button>
+        </form>
+    </div>
+</div>
