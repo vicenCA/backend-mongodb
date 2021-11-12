@@ -122,17 +122,33 @@ const updateUser = async (req, res) => {
 
     const { id_params } = req.params;
     let update_data = req.body;
-    console.log(update_data);
-    console.log(id_params);
-    User.findByIdAndUpdate(id_params, update_data, (err, user_update) => {
-        if (err) {
-            res.status(500).send({message: 'Error updating your data'});
-        } else if (!user_update) {
-            res.status(404).send({message: 'has not can update your user'});
+    
+    User.findById(id_params).then(async userFound => {
+        let user = new User(userFound);
+        console.log(user);
+        if (!userFound) {
+            res.status(404).send({message: 'User not found'});
         } else {
-            /* MUESTRA EL USUARIO AL QUE FUE AFECTADO PERO SIN EL CAMBIO */
-            res.status(200).send({update_data});
+            // EN EL CASO DE QUE LA CONTRASEÑA SE HAYA ACTUALIZADO, SE ENCRIPTA LA NUEVA Y SE ACTUALIZA,
+            // EN CASO CONTRARIO SOLO SE ACTUALIZA LO QUE EL USUARIO HAYA ENVIADO.
+            const match = await user.matchPassword(update_data.password);
+            if (!match) {
+                user.password = await user.encryptPassword(update_data.password);
+                
+            }
+            await User.findByIdAndUpdate(id_params, user).then(user_update => {
+                if (!user_update) {
+                    res.status(404).send({message: 'has not can update your user'});
+                } else {
+                    /* MUESTRA EL USUARIO AL QUE FUE AFECTADO PERO SIN EL CAMBIO */
+                    res.status(200).send({update_data: user});
+                }
+            }).catch(err => {
+                res.status(500).send(err);
+            });
         }
+    }).catch(err => {
+        res.status(500).send(err);
     });
 }
 

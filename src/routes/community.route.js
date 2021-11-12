@@ -7,6 +7,8 @@ router.post('/add', middleware_auth.ensureAuth, communityController.addCommunity
 /* */
 router.put('/update/:id_params', middleware_auth.ensureAuth, communityController.updateCommunityQuestion);
 /* */
+router.put('/update/views/:id_params', middleware_auth.ensureAuth, communityController.updateCommunityQuestionViews);
+/* */
 router.delete('/remove/:id_params', middleware_auth.ensureAuth, communityController.removeComunnityQuestion);
 /* */
 router.get('/all', communityController.getCommunityQuestions);

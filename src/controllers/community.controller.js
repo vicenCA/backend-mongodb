@@ -33,6 +33,24 @@ const updateCommunityQuestion = async (req, res) => {
     })
 };
 
+const updateCommunityQuestionViews = async (req, res) => {
+    const { id_params } = req.params;
+    let request = req.body;
+    console.log(id_params);
+    console.log(request._id);
+    request.views = request.views + 1;
+    Community.findByIdAndUpdate(id_params, {views: request.views}).then(communityUpdate => {
+        if (!communityUpdate) {
+            res.status(404).send({message: 'Community question not found'});
+        } else {
+            res.status(200).send({question: communityUpdate});
+        }
+    }).catch(err => {
+        res.status(500).send({message: 'Ocurrió un error'});
+    })
+};
+ 
+
 const removeComunnityQuestion = async (req, res) => {
     const { id_params } = req.params;
 
@@ -79,5 +97,6 @@ module.exports = {
     getCommunityQuestionById,
     getCommunityQuestions,
     updateCommunityQuestion,
+    updateCommunityQuestionViews,
     removeComunnityQuestion
 };

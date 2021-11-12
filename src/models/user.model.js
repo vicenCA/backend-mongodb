@@ -11,16 +11,16 @@ const UserSchema = new Schema({
     created_at: {type: Date, default: Date.now},
     role: {type: String, default: 'REGISTER_USER'},
     phone: {type: String, default: 0000-0000},
+    job: {type: String},
     performance: {type: String},
     birthdate: {type: Date},
     genre: {type: String},
     image: {type: String},
     bookmark: [Schema.Types.ObjectId],
     bookmark_food: [Schema.Types.ObjectId],
-    achievement: [Schema.Types.ObjectId],
     stars: [Number],
     followers: [Schema.Types.ObjectId],
-    following: [Schema.Types.ObjectId],
+    following: [Schema.Types.ObjectId]
 });
 
 UserSchema.methods.encryptPassword = async (password) => {
