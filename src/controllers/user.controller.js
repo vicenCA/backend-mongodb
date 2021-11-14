@@ -18,7 +18,6 @@ const userProove = async (req, res) => {
 
 const userNickName = async (req, res) => {
     const { nickname } = req.params;
-    console.log(nickname);
     User.findOne({nickname}).then(user => {
         if (!user) {
             res.status(403).send({message: 'User not exist'});
@@ -32,7 +31,6 @@ const userNickName = async (req, res) => {
 
 const userId = async (req, res) => {
     const { id_params } = req.params;
-    console.log(id_params);
     User.findOne({_id: id_params}).then(user => {
         if (!user) {
             res.status(403).send({message: 'User not exist'});
@@ -45,7 +43,7 @@ const userId = async (req, res) => {
 }
 
 const postUser = async (req, res) => {
-    const { name, surname, nickname, email, password } = req.body;
+    const { name, surname, nickname, email, password, role } = req.body;
     const errors = [];
 
     if (!name) errors.push({text: 'Please, write a name'});
@@ -68,14 +66,15 @@ const postUser = async (req, res) => {
             res.status(200).send({message: 'Nickname already is busy'}); 
         }
         else {
-            const image = 'https://res.cloudinary.com/refooks/image/upload/v1632975505/blackieshoot-ZFuhiak1UV0-unsplash_cy2wza.jpg'
+
             const user = new User();
             
             user.name = name;
             user.surname = surname;
             user.nickname = nickname;
             user.email = email;
-            user.image = image; 
+
+            if (role) user.role = role;
 
             user.password = await user.encryptPassword(password);
             await user.save((err, userSaved) => {
@@ -93,7 +92,6 @@ const postUser = async (req, res) => {
 
 const loginUser = async (req, res) => {
     const { email, password, gethash } = req.body;
-    console.log(req.body);
     User.findOne({email: email}, async (err, user) => {
         if (err) {
             res.send({message: 'Request Error'});
@@ -125,7 +123,6 @@ const updateUser = async (req, res) => {
     
     User.findById(id_params).then(async userFound => {
         let user = new User(userFound);
-        console.log(user);
         if (!userFound) {
             res.status(404).send({message: 'User not found'});
         } else {
@@ -183,8 +180,6 @@ const deleteProfileUser = async (req, res) => {
 const addFollowUser = async (req, res) => {
     const { id_params } = req.params;
     let update_data = req.body;
-    console.log(update_data);
-    console.log(id_params);
     User.findByIdAndUpdate(id_params, update_data, (err, user_update) => {
         if (err) {
             res.status(500).send({message: 'Error updating your data'});

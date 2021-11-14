@@ -83,6 +83,8 @@ app.use('/socialmedia',require('./routes/social.route'));
 
 app.use('/community',require('./routes/community.route'));
 
+app.use('/gamification',require('./routes/gamification.route'));
+
 /* === CONFIGURATION === */
 
 cloudinary.v2.config({

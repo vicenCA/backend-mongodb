@@ -1,5 +1,5 @@
-<div class="row">
-    <div class="col-md-4">
+ <div class="row">
+    {{!--<div class="col-md-4">
         <div class="card">
             <div class="card-body">
                 <form action="" method="PUT" enctype="multipart/form-data">
@@ -13,15 +13,29 @@
                 </form>
             </div>
         </div>
-    </div>
-    <div class="col-md-4">
-        <form action="/signup" method="POST">
-            <input type="text" name="nombre_usuario" placeholder="Inserte Nombre" required>
-            <input type="text" name="apellido_usuario" placeholder="Inserte Apellido" required>
-            <input type="text" name="alias_usuario" placeholder="Inserte Alias" required>
-            <input type="email" name="correo_electronico" placeholder="Inserta Mail" required>
-            <input type="password" name="clave_usuario" placeholder="Inserta Contraseña" required>
-            <button type="submit" class="btn btn-primary">Enviar </button>
-        </form>
+    </div> --}}
+    <div class="col-md-4 ">
+        <div class="d-flex justify-content-center">
+            <form action="/user/signup" method="POST">
+                <label for="name" class="form-label">Nombre</label>
+                <input type="text" name="name" id="name" placeholder="Inserte Nombre" required>
+
+                <label for="surname" class="form-label">Apellidos</label>
+                <input type="text" name="surname" id="surname" placeholder="Inserte Apellido" required>
+
+                <label for="nickname" class="form-label">Alias</label>
+                <input type="text" name="nickname" id="nickname" placeholder="Inserte Alias" required>
+
+                <label for="email" class="form-label">Correo electrónico</label>
+                <input type="email" name="email" id="email" placeholder="Inserta Mail" required>
+
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" name="password" id="password" placeholder="Inserta Contraseña" required>
+
+                <label for="role" class="form-label">Rol especial</label>
+                <input type="text" name="role" id="role" placeholder="Inserta Rol" required>
+                <button type="submit" class="btn btn-primary">Enviar </button>
+            </form>
+        </div>
     </div>
 </div>

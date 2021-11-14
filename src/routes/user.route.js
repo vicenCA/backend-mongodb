@@ -16,7 +16,7 @@ const uploader=multer({storage});
 
 router.get('/users', controllerUser.userProove);
 /* SIGN UP USER */
-router.post('/signup', controllerUser.postUser);
+router.post('/signup', controllerUser.postUser); 
 /* LOGIN USER */
 router.post('/login', controllerUser.loginUser);
 /* UPDATE USER */

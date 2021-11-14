@@ -1,8 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.status(200).send('Página de Inicio');
+router.get('/register_users', (req, res) => {
+    res.render('image_form');
 });
+
+router.get('/achievement-part', (req, res) => {
+    res.render('achievement');
+})
 
 module.exports = router;

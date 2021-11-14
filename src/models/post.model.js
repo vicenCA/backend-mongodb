@@ -6,7 +6,8 @@ const PostSchema = new Schema({
     create_at: {type: Date, default: Date.now},
     image: {type: String},
     user_of: {type: Schema.Types.ObjectId, ref: 'User'}, 
-    nametags: [String]
+    nametags: [String],
+    bookmarks: [Schema.Types.ObjectId]
 });
 
 module.exports = moongose.model('Post', PostSchema);
