@@ -60,10 +60,10 @@ const postUser = async (req, res) => {
         const emailUser = await User.findOne({email: email});
         const nickUser = await User.findOne({nickname: nickname});
         if(emailUser) {
-            res.status(200).send({message: 'Email already is busy'});
+            res.status(200).send({message: 'El correo ya existe, por favor coloque uno no registrado.'});
         }
         if (nickUser) {
-            res.status(200).send({message: 'Nickname already is busy'}); 
+            res.status(200).send({message: 'El alias ya se encuentra registrado.'}); 
         }
         else {
 
@@ -120,7 +120,6 @@ const updateUser = async (req, res) => {
 
     const { id_params } = req.params;
     let update_data = req.body;
-    
     User.findById(id_params).then(async userFound => {
         let user = new User(userFound);
         if (!userFound) {
@@ -131,14 +130,14 @@ const updateUser = async (req, res) => {
             const match = await user.matchPassword(update_data.password);
             if (!match) {
                 user.password = await user.encryptPassword(update_data.password);
-                
+                update_data.password = user.password;
             }
-            await User.findByIdAndUpdate(id_params, user).then(user_update => {
+            await User.findByIdAndUpdate(id_params, update_data).then(user_update => {
                 if (!user_update) {
                     res.status(404).send({message: 'has not can update your user'});
                 } else {
                     /* MUESTRA EL USUARIO AL QUE FUE AFECTADO PERO SIN EL CAMBIO */
-                    res.status(200).send({update_data: user});
+                    res.status(200).send({update_data});
                 }
             }).catch(err => {
                 res.status(500).send(err);

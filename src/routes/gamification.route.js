@@ -28,4 +28,17 @@ router.get('/all-level', gamificationController.getLvls);
 /* */
 router.get('/level/:id_params', gamificationController.getLvl);
 
+/* EXPERIENCE */
+
+/* */
+router.post('/add-exp', middleware_auth.ensureAuth, gamificationController.createExperience);
+/* */
+router.put('/update-exp/:id_params', middleware_auth.ensureAuth, gamificationController.updateExpUser);
+/* */
+router.get('/all-exp', gamificationController.getExpsByUsers);
+/* */
+router.get('/experience/:id_params', middleware_auth.ensureAuth, gamificationController.getExpByUser);
+/* */
+router.delete('/remove-exp/:id_params', middleware_auth.ensureAuth, gamificationController.deleteExperience);
+
 module.exports = router; 

@@ -1,6 +1,7 @@
 const Post = require('../models/post.model');
 const User = require('../models/user.model')
 const cloudinary = require('cloudinary');
+const fs = require('fs');
 
 /* CONTROLLADOR PARA EL MODELO DE LAS PUBLICACIONES DE LOS USUARIOS */
 

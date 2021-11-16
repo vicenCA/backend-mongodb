@@ -5,7 +5,7 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 const methodor = require('method-override');
 const session = require('express-session');
-const multer = require('multer');
+//const multer = require('multer');
 const cloudinary = require('cloudinary');
 const cors = require('cors');
 const morgan = require('morgan');
@@ -84,6 +84,10 @@ app.use('/socialmedia',require('./routes/social.route'));
 app.use('/community',require('./routes/community.route'));
 
 app.use('/gamification',require('./routes/gamification.route'));
+
+app.use('/news',require('./routes/news.route'));
+
+app.use('/interaction',require('./routes/interaction.route'));
 
 /* === CONFIGURATION === */
 

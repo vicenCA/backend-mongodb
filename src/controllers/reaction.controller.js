@@ -47,8 +47,23 @@ const getReacionOfPost = async (req, res) => {
     });
 }
 
+const deleteReactionOfPost = async (req, res) => {
+    const { id_params } = req.params;
+    
+    await Reaction.findOneAndRemove({post_of: id_params}).then(reactionRemoved => {
+        if (!reactionRemoved) {
+            res.status(404).send({message: 'Reaction not found'});
+        } else {
+            res.status(200).send({reaction: reactionRemoved});
+        }
+    }).catch(err => {
+        res.status(500).send({err});
+    })
+}
+
 module.exports = {
     generateReactionPost,
     updateReaction,
-    getReacionOfPost
+    getReacionOfPost,
+    deleteReactionOfPost
 };

@@ -9,5 +9,7 @@ router.post('/generate/', middleware_auth.ensureAuth, reactionController.generat
 router.put('/:id_params', middleware_auth.ensureAuth, reactionController.updateReaction);
 /* */
 router.get('/:id_params', reactionController.getReacionOfPost);
+/* */
+router.delete('/remove/:id_params', middleware_auth.ensureAuth, reactionController.deleteReactionOfPost);
 
 module.exports = router;

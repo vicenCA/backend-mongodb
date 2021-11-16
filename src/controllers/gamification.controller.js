@@ -102,7 +102,7 @@ const getExpsByUsers = async (req, res) => {
 const getExpByUser = async (req, res) => {
     const { id_params } = req.params;
 
-    await Exp.findById(id_params).then(ExpFound => {
+    await Exp.findOne({user_of: id_params}).then(ExpFound => {
         if (!ExpFound) {
             res.status(404).send({message: 'Experience of user not found'});
         } else {
@@ -122,6 +122,20 @@ const updateExpUser = async (req, res) => {
             res.status(404).send({message: 'Level not found'});
         } else {
             res.status(200).send({experience: request});
+        }
+    }).catch(err => {
+        res.status(500).send({err});
+    });
+}
+
+const deleteExperience = async (req, res) => {
+    const { id_params } = req.params;
+
+    Exp.findByIdAndRemove(id_params).then(experienceRemove => {
+        if (!experienceRemove) {
+            res.status(404).send({message: 'Experience not found'});
+        } else {
+            res.status(200).send({experience: experienceRemove});
         }
     }).catch(err => {
         res.status(500).send({err});
@@ -226,6 +240,7 @@ module.exports = {
     getExpsByUsers,
     getExpByUser,
     updateExpUser,
+    deleteExperience,
     /* CONTROLLER ACHIEVEMENT */
     createAchievement,
     getAchievements,
