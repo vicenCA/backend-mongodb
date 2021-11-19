@@ -8,7 +8,7 @@ const gamificationController = require('../controllers/gamification.controller')
 /* */
 router.post('/add', gamificationController.createAchievement);
 /* */
-router.put('/update/:id_params', middleware_auth.ensureAuth, gamificationController.updateAchievement);
+router.put('/update/achievement/:id_params', middleware_auth.ensureAuth, gamificationController.updateAchievement);
 /* */
 router.delete('/remove/:id_params', middleware_auth.ensureAuth, gamificationController.deleteAchievement);
 /* */
@@ -24,7 +24,7 @@ router.post('/add-level', gamificationController.createLvl);
 /* */
 router.put('/update-level/:id_params', middleware_auth.ensureAuth, gamificationController.updateLvl);
 /* */
-router.get('/all-level', gamificationController.getLvls);
+router.get('/all/levels/level', gamificationController.getLvls);
 /* */
 router.get('/level/:id_params', gamificationController.getLvl);
 
@@ -35,7 +35,7 @@ router.post('/add-exp', middleware_auth.ensureAuth, gamificationController.creat
 /* */
 router.put('/update-exp/:id_params', middleware_auth.ensureAuth, gamificationController.updateExpUser);
 /* */
-router.get('/all-exp', gamificationController.getExpsByUsers);
+router.get('/all/experience', middleware_auth.ensureAuth, gamificationController.getExpsByUsers);
 /* */
 router.get('/experience/:id_params', middleware_auth.ensureAuth, gamificationController.getExpByUser);
 /* */

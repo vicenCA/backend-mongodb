@@ -8,7 +8,8 @@ const NewsSchema = new Schema({
     image: {type: String, required: true},
     category: {type: String, required: true},
     created_at: {type: Date, default: Date.now},
-    user_of: {type: Schema.Types.ObjectId, ref: 'User'}
+    user_of: {type: Schema.Types.ObjectId, ref: 'User'},
+    stars: [Schema.Types.ObjectId]
 });
 
 module.exports = moongose.model('News', NewsSchema);

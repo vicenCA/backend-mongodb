@@ -33,7 +33,7 @@ const userId = async (req, res) => {
     const { id_params } = req.params;
     User.findOne({_id: id_params}).then(user => {
         if (!user) {
-            res.status(403).send({message: 'User not exist'});
+            res.status(404).send({message: 'No se ha encontrado el usuario.'});
         } else {
             res.status(200).send({user});
         }
@@ -75,7 +75,7 @@ const postUser = async (req, res) => {
             user.email = email;
 
             if (role) user.role = role;
-
+            if (req.body.permissions) user.permissions = req.body.permissions;
             user.password = await user.encryptPassword(password);
             await user.save((err, userSaved) => {
                 if (err) {
@@ -97,12 +97,12 @@ const loginUser = async (req, res) => {
             res.send({message: 'Request Error'});
         }
         if (!user) {
-            return res.status(404).send({message: "User doesn't exist"});
+            return res.status(404).send({message: "El correo no existe, por favor escriba uno correcto."});
         }
         else {
             const match = await user.matchPassword(password);
             if (!match) {
-                res.status(404).send({message: 'Password bad write'})
+                res.status(404).send({message: 'La contraseña que has introducido es incorrecta.'})
             } else {
                 if (gethash) {
                     // TOKEN JWT

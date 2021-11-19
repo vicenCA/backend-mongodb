@@ -9,7 +9,8 @@ const RecipeSchema = new Schema({
     category: {type: String, required: true},
     created_at: {type: Date, default: Date.now},
     user_of: {type: Schema.Types.ObjectId, ref: 'User'},
-    ingredient: [Schema.Types.ObjectId]
+    ingredient: [String],
+    stars: [Schema.Types.ObjectId]
 });
 
 module.exports = moongose.model('Recipe', RecipeSchema);

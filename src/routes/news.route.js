@@ -16,15 +16,17 @@ const uploader=multer({storage});
 
 /* NEWS */
 
-/* */
+/* UPLOAD NEWS CARD */
 router.post('/add', [middleware_auth.ensureAuth, uploader.single('image')] , newsController.postNews);
-/* */
-router.put('/update/:id_params', middleware_auth.ensureAuth, newsController.updateNews);
-/* */
+/* UPDATE NEWS CARD */
+router.put('/:id_params', middleware_auth.ensureAuth, newsController.updateNews);
+/* UPDATE VIEWS NEWS */
+router.put('/views/:id_params', newsController.updateNewsViews);
+/* REMOVE NEWS CARD */
 router.delete('/remove/:id_params', middleware_auth.ensureAuth, newsController.deleteNews);
-/* */
+/* GET ALL NEWS CARD */
 router.get('/all', newsController.getAllNews);
-/* */
+/* GET ONE NEWS CARD BY ID */
 router.get('/:id_params', newsController.getNewsByID);
 
 

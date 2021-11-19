@@ -18,7 +18,7 @@ router.get('/all', middleware_auth.ensureAuth, postController.getPosts);
 /* GET POSTS OF USER */
 router.get('/user/:id_params', postController.getPostsByUser); 
 /* GET POST BY ID POST*/
-router.get('/user-post/:id_params', postController.updatePostByID);
+router.get('/user/post/:id_params', postController.getPostByID);
 /* GET POST BY ID FOLLOWING*/
 router.get('/following/:id_params', middleware_auth.ensureAuth, postController.getPostsByFollowing);
 /* POST A POST WITH ID USER */

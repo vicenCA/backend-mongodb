@@ -45,7 +45,7 @@ const getPostsByFollowing = async (req, res) => {
         } else {
             for (let index = 0; index < userFound.following.length; index++) {
                 await Post.find({user_of: userFound.following[index]._id}).then(postsFound => {
-                    if (postsFound) {
+                    if (postsFound.length > 0) {
                         posts.push(postsFound);
                     }
                 }).catch(err => {
@@ -55,8 +55,8 @@ const getPostsByFollowing = async (req, res) => {
             // LUEGO AGREGAR LAS PUBLICACIONES REALIZADAS POR EL USUARIO REGISTRADO
             await Post.find({user_of: id_params}).then(postsUser => {
                 if (postsUser) {
-                    console.log(postsUser);
                     posts.push(postsUser);
+                    console.log(posts);
                     res.status(200).send({posts});
                 }
             }).catch(err => {
@@ -109,6 +109,7 @@ const postPost = async (req, res) => {
     const { description, nametags } = req.body;
     const { id_params } = req.params;
     const file = req.file;
+    console.log(req.body);
     
     if (!file) { // EN CASO DE NO HABER UNA PETICIÓN DE IMAGEN, SE LE HACE SABER AL USUARIO QUE SUBA UNA
         res.status(200).send({message: 'Fill the image'}); 

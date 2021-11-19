@@ -10,6 +10,8 @@ const UserSchema = new Schema({
     password: {type: String, required: true},
     created_at: {type: Date, default: Date.now},
     role: {type: String, default: 'REGISTER_USER'},
+    permissions: {type: String, default: 'REGISTER_USER'},
+    nationality: {type: String}, 
     phone: {type: String, default: 0000-0000},
     job: {type: String},
     food_interest: {type: String},
@@ -17,9 +19,6 @@ const UserSchema = new Schema({
     birthdate: {type: Date},
     genre: {type: String},
     image: {type: String, default: 'https://res.cloudinary.com/refooks/image/upload/v1636758291/sin-foto-refooks_oz1dyi.jpg'},
-    bookmark: [Schema.Types.ObjectId],
-    bookmark_food: [Schema.Types.ObjectId],
-    stars: [Number],
     followers: [Schema.Types.ObjectId],
     following: [Schema.Types.ObjectId]
 });

@@ -33,7 +33,7 @@ const updateInteraction = async (req, res) => {
 
 const getInteractionUser = async (req, res) => {
     const { id_params } = req.params;
-
+    console.log(id_params);
     await Interaction.findOne({user_of: id_params}).then(interactionFound => {
         if (!interactionFound) {
             res.status(404).send({message: 'Interaction not found'});

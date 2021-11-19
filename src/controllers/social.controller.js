@@ -17,7 +17,6 @@ const getAllSMbyUser = async (req, res) => {
 const postSocialMedia = async (req, res) => {
     const request = req.body;
     const { id_params } = req.params;
-    console.log(request);
     await SocialMedia.find({user_of: id_params}).then(async user => {
         if (!user) {
             res.status(404).send({message: 'Social Media not found'});

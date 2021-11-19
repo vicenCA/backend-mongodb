@@ -89,6 +89,8 @@ app.use('/news',require('./routes/news.route'));
 
 app.use('/interaction',require('./routes/interaction.route'));
 
+app.use('/stars',require('./routes/star.route'));
+
 /* === CONFIGURATION === */
 
 cloudinary.v2.config({

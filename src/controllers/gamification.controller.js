@@ -114,12 +114,13 @@ const getExpByUser = async (req, res) => {
 }
 
 const updateExpUser = async (req, res) => {
-    const { id_params } = rq.params;
+    const { id_params } = req.params;
     const request = req.body;
+    console.log(request);
 
     await Exp.findByIdAndUpdate(id_params, request).then(ExpUpdate => {
         if (!ExpUpdate) {
-            res.status(404).send({message: 'Level not found'});
+            res.status(404).send({message: 'Experience not found'});
         } else {
             res.status(200).send({experience: request});
         }

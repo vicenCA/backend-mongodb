@@ -36,8 +36,7 @@ const updateCommunityQuestion = async (req, res) => {
 const updateCommunityQuestionViews = async (req, res) => {
     const { id_params } = req.params;
     let request = req.body;
-    console.log(id_params);
-    console.log(request._id);
+    
     request.views = request.views + 1;
     Community.findByIdAndUpdate(id_params, {views: request.views}).then(communityUpdate => {
         if (!communityUpdate) {

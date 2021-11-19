@@ -81,6 +81,22 @@ const updateNews = async (req, res) => {
     });
 }
 
+const updateNewsViews = async (req, res) => {
+    const { id_params } = req.params;
+    let request = req.body;
+    
+    request.views = request.views + 1;
+    News.findByIdAndUpdate(id_params, {views: request.views}).then(newsUpdate => {
+        if (!newsUpdate) {
+            res.status(404).send({message: 'News not found'});
+        } else {
+            res.status(200).send({news: newsUpdate});
+        }
+    }).catch(err => {
+        res.status(500).send({message: 'Ocurrió un error'});
+    })
+};
+
 const deleteNews = async (req, res) => {
     const { id_params } = req.params;
 
@@ -101,5 +117,6 @@ module.exports = {
     getNewsByID,
     postNews,
     updateNews,
+    updateNewsViews,
     deleteNews
 }
