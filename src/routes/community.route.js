@@ -15,4 +15,4 @@ router.get('/all', communityController.getCommunityQuestions);
 /* */
 router.get('/:id_params', communityController.getCommunityQuestionById);
 
-module.exports = router; 
+module.exports = router;  

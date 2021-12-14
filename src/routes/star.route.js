@@ -8,11 +8,11 @@ router.post('/generate/', middleware_auth.ensureAuth, StarController.generateSta
 /* UPDATE STARS OF POST BY USER */
 router.put('/:id_params', middleware_auth.ensureAuth, StarController.updateStars);
 /* GET STARS OF USER AND POST*/
-router.get('/:id_params/:id_post', middleware_auth.ensureAuth, StarController.getStarsofUserPost);
+router.get('/:id_params/:id_post', StarController.getStarsofUserPost);
 /* GET STARS OF USER */
 router.get('/user/stars/:id_params', middleware_auth.ensureAuth, StarController.getStarsofUser);
 /* GET STARS OF POST */
-router.get('/post/:id_params', StarController.getStarsofPost);
+router.get('/post/stars/id/:id_params', StarController.getStarsofPost);
 /* DELETE STARS */
 router.delete('/remove/:id_params', middleware_auth.ensureAuth, StarController.deleteStars);
 

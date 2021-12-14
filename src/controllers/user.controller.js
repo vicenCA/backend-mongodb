@@ -16,6 +16,18 @@ const userProove = async (req, res) => {
     });
 }
 
+const AmountUsers = async (req, res) => {
+    await User.find().then(users => {
+        if (!users) {
+            res.status(400).send({message: 'Users not found.'});
+        } else {
+            res.status(200).send({amount: users.length});
+        }
+    }).catch(err => {
+        res.status(500).send({err});
+    });
+}
+
 const userNickName = async (req, res) => {
     const { nickname } = req.params;
     User.findOne({nickname}).then(user => {
@@ -127,10 +139,12 @@ const updateUser = async (req, res) => {
         } else {
             // EN EL CASO DE QUE LA CONTRASEÑA SE HAYA ACTUALIZADO, SE ENCRIPTA LA NUEVA Y SE ACTUALIZA,
             // EN CASO CONTRARIO SOLO SE ACTUALIZA LO QUE EL USUARIO HAYA ENVIADO.
-            const match = await user.matchPassword(update_data.password);
-            if (!match) {
-                user.password = await user.encryptPassword(update_data.password);
-                update_data.password = user.password;
+            if (update_data.length > 0) {
+                const match = await user.matchPassword(update_data.password);
+                if (!match) {
+                    user.password = await user.encryptPassword(update_data.password);
+                    update_data.password = user.password;
+                }
             }
             await User.findByIdAndUpdate(id_params, update_data).then(user_update => {
                 if (!user_update) {
@@ -225,5 +239,6 @@ module.exports = {
     updatePictureProfile,
     deleteProfileUser,
     addFollowUser,
-    removeFollowUser
+    removeFollowUser,
+    AmountUsers
 }

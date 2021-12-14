@@ -50,7 +50,7 @@ const getStarsofUserPost = async (req, res) => {
 }
 
 const getStarsofPost = async (req, res) => {
-    const { id_params } = req.params; // id user
+    const { id_params } = req.params; // id post
 
     await Star.find({post_of: id_params}).then(starsFound => {
         if (!starsFound) {

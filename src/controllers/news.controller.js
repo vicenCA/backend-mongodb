@@ -90,7 +90,7 @@ const updateNewsViews = async (req, res) => {
         if (!newsUpdate) {
             res.status(404).send({message: 'News not found'});
         } else {
-            res.status(200).send({news: newsUpdate});
+            res.status(200).send({news: request});
         }
     }).catch(err => {
         res.status(500).send({message: 'Ocurrió un error'});
@@ -98,11 +98,11 @@ const updateNewsViews = async (req, res) => {
 };
 
 const deleteNews = async (req, res) => {
-    const { id_params } = req.params;
+    const { id_params } = req.params;  
 
     News.findByIdAndRemove(id_params).then(newsRemoved => {
         if (!newsRemoved) {
-            res.status(404).send({message: 'News not found.'});
+            res.status(404).send({message: 'News not found.'}); 
         } else {
             //ELIMINAR REFERENCIAS DE FOOD EN BOOKMARKS DE USUARIOS.
             res.status(200).send({news: newsRemoved});

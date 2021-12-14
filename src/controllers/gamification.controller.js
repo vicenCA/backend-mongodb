@@ -71,13 +71,10 @@ const updateLvl = async (req, res) => {
 /* ============================================================================ */
 
 const createExperience = async (req, res) => {
-    const { statusName, user_of, levelExp, statusExp } = req.body;
+    const { user_of } = req.body;
 
     const experience = new Exp({
-        statusName,
-        user_of,
-        levelExp,
-        statusExp
+        user_of
     });
 
     await experience.save().then(expSave => {
@@ -93,10 +90,10 @@ const getExpsByUsers = async (req, res) => {
             res.status(404).send({message: 'Experience of users not found'});
         } else {
             res.status(200).send({experience: ExpsFound});
-        }
-    }).catch(err => {
-        res.status(500).send({err});
-    });
+        }  
+    }).catch(err => { 
+        res.status(500).send({err}); 
+    }); 
 }
 
 const getExpByUser = async (req, res) => {
