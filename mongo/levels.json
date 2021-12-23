@@ -1,0 +1,100 @@
+[{
+  "_id": {
+    "$oid": "61908b6bfcee06166d4a1e85"
+  },
+  "statusName": "Nuevo",
+  "levelNumber": 0,
+  "minExp": 0,
+  "maxExp": 30,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61908bece28dd495c0842cb8"
+  },
+  "statusName": "Descubridor",
+  "levelNumber": 1,
+  "minExp": 30,
+  "maxExp": 100,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61908bf9e28dd495c0842cba"
+  },
+  "statusName": "Interesado",
+  "levelNumber": 2,
+  "minExp": 100,
+  "maxExp": 200,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61908c0ae28dd495c0842cbc"
+  },
+  "statusName": "Recurrente",
+  "levelNumber": 3,
+  "minExp": 200,
+  "maxExp": 500,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61908c20e28dd495c0842cbe"
+  },
+  "statusName": "Conocido",
+  "levelNumber": 4,
+  "minExp": 500,
+  "maxExp": 900,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61908c34e28dd495c0842cc0"
+  },
+  "statusName": "Activo",
+  "levelNumber": 5,
+  "minExp": 900,
+  "maxExp": 1350,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61908c48e28dd495c0842cc2"
+  },
+  "statusName": "Dinámico",
+  "levelNumber": 6,
+  "minExp": 1350,
+  "maxExp": 1850,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61908c6ae28dd495c0842cc4"
+  },
+  "statusName": "Especializado",
+  "levelNumber": 7,
+  "minExp": 1850,
+  "maxExp": 2400,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61908c78e28dd495c0842cc6"
+  },
+  "statusName": "Experto",
+  "levelNumber": 8,
+  "minExp": 2400,
+  "maxExp": 3000,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61908c8ce28dd495c0842cc8"
+  },
+  "statusName": "Mercenario",
+  "levelNumber": 9,
+  "minExp": 3000,
+  "maxExp": 3800,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61908ca2e28dd495c0842cca"
+  },
+  "statusName": "Refookers",
+  "levelNumber": 10,
+  "minExp": 3800,
+  "maxExp": 5000,
+  "__v": 0
+}]

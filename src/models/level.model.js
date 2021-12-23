@@ -5,7 +5,8 @@ const LevelSchema = new Schema({
     statusName: {type: String, required: true, unique: true},
     levelNumber: {type: Number, required: true, unique: true},
     minExp: {type: Number, required: true},
-    maxExp: {type: Number, required: true}
+    maxExp: {type: Number, required: true},
+    icon: {type: String}
 });
 
 module.exports = moongose.model('Level', LevelSchema);

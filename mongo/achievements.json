@@ -1,0 +1,81 @@
+[{
+  "_id": {
+    "$oid": "619074089f7d33676f3d901a"
+  },
+  "name": "Presenta tus Redes Sociales",
+  "description": "El usuario conectó al menos dos redes sociales en su cuenta",
+  "getUser": [
+    {
+      "$oid": "615cdab71b673d1fe6a7b20b"
+    }
+  ],
+  "image": "https://res.cloudinary.com/refooks/image/upload/v1636758291/sin-foto-refooks_oz1dyi.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "619074369f7d33676f3d901c"
+  },
+  "name": "¡Al menos es un avance!",
+  "description": "El usuario al menos avanzó el 50% de su perfil",
+  "getUser": [
+    {
+      "$oid": "615cdab71b673d1fe6a7b20b"
+    }
+  ],
+  "image": "https://res.cloudinary.com/refooks/image/upload/v1636758291/sin-foto-refooks_oz1dyi.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "619074579f7d33676f3d901e"
+  },
+  "name": "Gustos por completar campos",
+  "description": "El usuario completó su perfil con toda su información",
+  "getUser": [],
+  "image": "https://res.cloudinary.com/refooks/image/upload/v1636758291/sin-foto-refooks_oz1dyi.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "619074729f7d33676f3d9020"
+  },
+  "name": "Publimaniático",
+  "description": "El usuario subió 30 publicaciones en su perfil",
+  "getUser": [],
+  "image": "https://res.cloudinary.com/refooks/image/upload/v1636758291/sin-foto-refooks_oz1dyi.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "619075e19f7d33676f3d9022"
+  },
+  "name": "Placa de Plata",
+  "description": "El usuario alcanzó los 100 seguidores",
+  "getUser": [],
+  "image": "https://res.cloudinary.com/refooks/image/upload/v1636758291/sin-foto-refooks_oz1dyi.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "619075e99f7d33676f3d9024"
+  },
+  "name": "Placa de Oro",
+  "description": "El usuario alcanzó los 500 seguidores",
+  "getUser": [],
+  "image": "https://res.cloudinary.com/refooks/image/upload/v1636758291/sin-foto-refooks_oz1dyi.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "619075f39f7d33676f3d9026"
+  },
+  "name": "Placa de Diamante",
+  "description": "El usuario alcanzó los 2000 seguidores",
+  "getUser": [],
+  "image": "https://res.cloudinary.com/refooks/image/upload/v1636758291/sin-foto-refooks_oz1dyi.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "619076019f7d33676f3d9028"
+  },
+  "name": "WikiAlimento",
+  "description": "El usuario valora al menos 20 alimentos/recetas.",
+  "getUser": [],
+  "image": "https://res.cloudinary.com/refooks/image/upload/v1636758291/sin-foto-refooks_oz1dyi.jpg",
+  "__v": 0
+}]
